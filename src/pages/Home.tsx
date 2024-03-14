@@ -9,7 +9,7 @@ const Home = () => {
         Welcome!
         <br />
         You can <Link to="/login">login</Link> if you already have account or you
-        can <Link to="/register">register</Link>.
+        can <Link to="/registration">register</Link>.
         {/* <TodoList /> */}
       </div>
     </div>
