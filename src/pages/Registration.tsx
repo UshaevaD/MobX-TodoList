@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IRegisterUser } from "../types/common.type";
+import { IRegisterUser } from "../types/auth.types";
 import Input from "../components/UI/Input";
 import Button from "../components/UI/Button";
 import { AuthorizationAPI } from "../api/AuthorizationAPI";
@@ -19,11 +19,7 @@ const Registartion = () => {
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await AuthorizationAPI.registration(user);
-    } catch (error) {
-      console.error(error);
-    }
+    // await register
   };
 
   return (

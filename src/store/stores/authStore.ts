@@ -1,24 +1,58 @@
-import { observable } from "mobx";
+import { action, observable, runInAction } from "mobx";
 import { IRootStore } from "./rootStore";
+import { AuthorizationAPI } from "../../api/AuthorizationAPI";
+import { ILoginUser, IRegisterUser } from "../../types/auth.types";
 
 export interface IAuthStore {
-  token: string | null,
-  isAuth: Boolean,
-  isRegister: Boolean 
+  token: string;
+  isAuth: Boolean;
 }
 
-export class AuthStore implements IAuthStore  {
+export class AuthStore implements IAuthStore {
   private rootStore: IRootStore;
-  
-  @observable token = null;
+
+  @observable token = '';
   @observable isAuth = false;
-  @observable isRegister = false;
 
   constructor(rootStore: IRootStore) {
     this.rootStore = rootStore;
   }
-}
 
+  @action
+  setIsAuth() {
+    this.isAuth = true;
+  }
+
+  @action
+  setToken(token: string) {
+    this.token = token || '';
+  }
+
+  async register(user: IRegisterUser) {
+    try {
+      const response = await AuthorizationAPI.registration(user);
+
+      console.log("response ", response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async login(user: ILoginUser) {
+    try {
+      const token = await AuthorizationAPI.login(user);
+
+      runInAction(() => {
+        this.setToken(token);
+      });
+    } catch (error) {
+      console.log('error ', error)
+      runInAction(() => {
+        this.setToken('');
+      });
+    }
+  }
+}
 
 // @observable protected _accessToken: Maybe<string> = null;
 // @computed public get accessToken(): Maybe<string> {

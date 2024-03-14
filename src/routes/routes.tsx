@@ -3,6 +3,7 @@ import Registration from "../pages/Registration";
 import { ErrorBoundary, MainLayout, RequireAuth } from ".";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import TodoList from "../pages/TodoList";
 
 export const route: RouteObject[] = [
   {
@@ -60,7 +61,7 @@ export const route: RouteObject[] = [
             element: (
               <RequireAuth>
                 <>
-                  <div>Todo-list</div>
+                  <TodoList />
                   <Outlet></Outlet>
                 </>
               </RequireAuth>

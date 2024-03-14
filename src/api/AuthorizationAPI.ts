@@ -1,4 +1,4 @@
-import { IRegisterUser } from "../types/common.type";
+import { IRegisterUser } from "../types/auth.types";
 import { deleteCookie, setCookie } from "../utils/cookies";
 import { request } from "./configs/axiosConfig";
 
@@ -18,7 +18,7 @@ export const AuthorizationAPI = {
     const token = response.data.accessToken;
     setCookie("tkn", token);
 
-    return response.data;
+    return response.data.accessToken;
   },
 
   logout: function () {
