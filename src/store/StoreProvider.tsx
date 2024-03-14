@@ -19,7 +19,7 @@ export const StoreProvider: StoreComponent = ({
   )
 }
 
-export const useStore = () => {
+export const useStore = (): RootStore => {
   const context = useContext(StoreContext);
 
   if(context === null) {
@@ -30,7 +30,3 @@ export const useStore = () => {
 
   return context;
 }
-
-// export const withStore = (Component: ReactElement) => (props) => {
-//   return <Component {...props} store={useStore()} />
-// }

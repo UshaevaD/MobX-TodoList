@@ -1,7 +1,11 @@
 {
-  "todos": [
-
-  ],
+  "todos": [],
   "users": [
+    {
+      "email": "test@example.com",
+      "password": "$2a$10$dp2ZarylDdqFi6HZzSw9ue9ZgDsha/oVBcMPgjof775q/Nhvbz0Um",
+      "name": "John Doe",
+      "id": 1
+    }
   ]
 }

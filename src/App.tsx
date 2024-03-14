@@ -1,11 +1,13 @@
 import './App.css';
 import { MyComponent } from './components/MyComponent';
+import { RegistrationForm } from './components/RegistrationForm';
 
 function App() {
   return (
     <div className="App">
-      App
-      <MyComponent />
+      App {process.env.REACT_APP_BASE_URL}
+      <RegistrationForm />
+      {/* <MyComponent /> */}
     </div>
   );
 }
