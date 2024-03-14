@@ -45,5 +45,5 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-json-server db.json -m ./node_modules/json-server-auth
+json-server db.json -m ./node_modules/json-server-auth -p 3001
 

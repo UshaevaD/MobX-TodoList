@@ -1,13 +1,13 @@
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
-import { MyComponent } from './components/MyComponent';
-import { RegistrationForm } from './components/RegistrationForm';
+import { route } from './pages';
 
-function App() {
+const App = () => {
+  const router = createBrowserRouter(route);
+
   return (
     <div className="App">
-      App {process.env.REACT_APP_BASE_URL}
-      <RegistrationForm />
-      {/* <MyComponent /> */}
+      <RouterProvider router={router} />
     </div>
   );
 }
